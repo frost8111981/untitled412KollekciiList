@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Employee> emp = new ArrayList<>();
-
         while(true){
             System.out.println("Введите информацию о сотруднике (фамилия, имя, возраст, пол, образование, должность, отдел");
             System.out.println("Введите фамилию");
@@ -32,7 +31,7 @@ public class Main {
                     System.out.printf("%-10s %-10s %-10s %-10s\n", emp.get(i).getSurname(), emp.get(i).getName(), emp.get(i).getAge(), emp.get(i).getEducation());
                 }
                 System.out.println("--------------------------------------------------------------------------------");
-                System.out.println("Если не хотите менять данные, введите end, для изменения нажмите enter");
+                System.out.println("Если хотите завершить программу введите end, для изменения нажмите enter");
                 String input2 = sc.nextLine();
                 if("end".equals(input2)){
                     break;
@@ -40,16 +39,17 @@ public class Main {
                     System.out.println("Введите фамилию и имя работника, для которого хотите изменить данные");
                     String inputSurname = sc.nextLine();
                     String inputName = sc.nextLine();
-                    int empIndex = searchBySurname(surname, name, emp);
-                    if (empIndex != -1) {
-                        // TODO опросы по атрибутам
+                    Employee.searchBySurname(inputSurname, inputName, emp);
+                    System.out.printf("%-10s %-10s %-10s %-10s\n", "Фамилия","Имя","Возраст","Должность");
+
+                    for (int i = 0; i < emp.size(); i++) {
+                        System.out.printf("%-10s %-10s %-10s %-10s\n", emp.get(i).getSurname(), emp.get(i).getName(), emp.get(i).getAge(), emp.get(i).getEducation());
                     }
+                    break;
                 }
             }
-
-            emp.get
         }
 
     }
-    
+
 }
